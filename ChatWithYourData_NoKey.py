@@ -18,13 +18,13 @@ if "https_proxy" in os.environ:
 
 
 # Set up OpenAI API key
-openai_api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = os.getenv('OPENAI_API_KEY')
 #my_key = <YOUR KEY>
-my_key = openai_api_key
+my_key = openai.api_key
 
 openai.api_key = my_key
 # Print the OpenAI API key
-print(f'OpenAI API Key: {openai_api_key}')
+print(f'OpenAI API Key: {openai.api_key}')
 
 # Function to detect file encoding
 def detect_encoding(file_path):
@@ -95,7 +95,7 @@ for msg in st.session_state.messages:
 
 if prompt := st.chat_input():
     if not openai_api_key:
-        openai_api_key = my_key
+        openai.api_key = my_key
         print(f'OpenAI API Key has been set: {openai_api_key}')
 
 
